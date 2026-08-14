@@ -28,6 +28,23 @@ claude code reads `~/.claude/CLAUDE.md`; [codex](https://learn.chatgpt.com/docs/
 
 git can preserve symlinks inside a repo, but it cannot install them elsewhere in your home directory. these few commands are the tiny installer.
 
+## bootstrap testing
+
+starting a new project, or working in one with no tests yet? point your agent at
+[`testing-setup.md`](./testing-setup.md) and ask it to build the test environment
+around those preferences.
+
+for example:
+
+```text
+set up testing for this project following /path/to/aku-aku/testing-setup.md.
+adapt the guide to the project's stack and existing conventions.
+```
+
+this is an optional playbook, not a global instruction. it is intentionally not
+referenced from `AGENTS.md`, so it only applies when you explicitly hand it to an
+agent.
+
 ## License
 
 Original material in this repository is available under the [MIT License](./LICENSE). The Aku Aku character and artwork belong to their respective rights holders and are not covered by that license. [Image source](https://crash-bandicoot.fandom.com/fr/wiki/Aku_Aku).
