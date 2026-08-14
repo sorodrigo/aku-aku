@@ -19,6 +19,12 @@ Follow these in all projects:
 
 Sources: kentcdodds.com — write-tests, testing-implementation-details, how-to-know-what-to-test, the-testing-trophy-and-testing-classifications.
 
+# Code style
+
+## Avoid nested ternaries
+
+Never use nested ternary expressions. Sacrifice terse code in favor of readability. Write code as though it is harder to read than to write: future editors will not know all of your intentions or context, so make the control flow easy to follow with explicit conditionals, early returns, or well-named intermediate values.
+
 # Comments
 
 Keep comments to the absolute minimum. A comment is a flag raised over something strange and important — a non-obvious constraint, a surprising ordering requirement, a workaround for someone else's bug, a trap the next reader will otherwise fall into. Drowning those few real flags in a sea of narration is how they stop being read. Code that says what it does needs no comment saying the same thing again; if a comment is needed to explain *what* is happening, prefer renaming or restructuring until it isn't.
