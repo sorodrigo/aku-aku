@@ -25,6 +25,10 @@ Sources: kentcdodds.com — write-tests, testing-implementation-details, how-to-
 
 Never use nested ternary expressions. Sacrifice terse code in favor of readability. Write code as though it is harder to read than to write: future editors will not know all of your intentions or context, so make the control flow easy to follow with explicit conditionals, early returns, or well-named intermediate values.
 
+# Writing
+
+Treat every word and sentence as starting with negative points because it costs the reader attention. Keep it only when it has a clear purpose and the value it delivers more than offsets that cost; if its net value is not positive, remove it. A stated purpose is not enough: text that fails to achieve its purpose adds no value. Prefer plain, familiar language. Uncommon or ornate words carry a higher cost and must add proportionally more precision or meaning to earn their place.
+
 # Comments
 
 Keep comments to the absolute minimum. A comment is a flag raised over something strange and important — a non-obvious constraint, a surprising ordering requirement, a workaround for someone else's bug, a trap the next reader will otherwise fall into. Drowning those few real flags in a sea of narration is how they stop being read. Code that says what it does needs no comment saying the same thing again; if a comment is needed to explain *what* is happening, prefer renaming or restructuring until it isn't.
