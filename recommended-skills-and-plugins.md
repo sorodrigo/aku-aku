@@ -6,7 +6,7 @@ An optional shortlist. Use only what fits the task.
 
 - [`cloudflare`](https://github.com/cloudflare/skills)
 - [`vercel-react-best-practices`](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices)
-- [`edgecms`](https://github.com/upbeat-works/edgecms) — product source; the skill is local
+- [`edgecms`](https://github.com/upbeat-works/edgecms)
 - [`ast-grep`](https://github.com/ast-grep/agent-skill/tree/main/ast-grep/skills/ast-grep)
 - [`ast-grep-outline`](https://github.com/ast-grep/agent-skill/tree/main/ast-grep/skills/outline)
 
@@ -15,6 +15,7 @@ Install the public skills from their source repositories:
 ```sh
 npx skills add https://github.com/cloudflare/skills
 npx skills add vercel-labs/agent-skills
+npx skills add upbeat-works/edgecms
 npx skills add ast-grep/agent-skill
 ```
 
