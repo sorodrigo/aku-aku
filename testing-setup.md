@@ -18,17 +18,29 @@ unit-test layer by mocking the pieces that those integration tests should connec
 
 ## Defaults
 
+### Test runner
+
+#### Pure logic and server code
+
 Prefer Vitest for TypeScript and JavaScript projects. Use its Node environment for
-pure logic and compatible server code. For web UI, prefer Vitest Browser Mode with
-the Playwright provider and Chromium over jsdom or happy-dom.
+pure logic and compatible server code.
+
+#### Browser UI
+
+For web UI, prefer Vitest Browser Mode with the Playwright provider and Chromium
+over jsdom or happy-dom.
+
+### UI interaction
+
+Use Testing Library for rendered UI and `user-event` or its platform equivalent for
+interaction. Query the interface through roles, labels, and visible state.
+
+### Runtime-specific exceptions
 
 Use an environment-specific runner when it materially improves fidelity. A native
 runtime adapter, a Workers pool, or Jest through Expo is better than forcing Vitest
 around an incompatible runtime. Keep the same testing boundaries and principles
 when the runner changes.
-
-Use Testing Library for rendered UI and `user-event` or its platform equivalent for
-interaction. Query the interface through roles, labels, and visible state.
 
 ## Set up the database first
 
@@ -76,6 +88,98 @@ or service graph with mocks merely to make the test runner convenient.
 Test pure domain logic without booting the application. A recurrence calculation or
 geometry function should not pay the cost of Docker; a permission or persistence flow
 usually should.
+
+## Cloudflare Workers
+
+Cloudflare Workers need a runtime-aware test setup. Do not run Worker integration
+tests in plain Node with a hand-built `env`; that can hide differences in runtime APIs,
+bindings, compatibility flags, Durable Objects, and storage behavior.
+
+Cloudflare's testing surface changes quickly. Do not copy a harness, import, or
+configuration shape from this guide or from an older project. Before setting up or
+changing Worker tests, consult the current official sources:
+
+- [Workers testing overview](https://developers.cloudflare.com/workers/testing/) —
+  choose the currently recommended boundary and harness;
+- [Workers testing recipes](https://developers.cloudflare.com/workers/testing/vitest-integration/recipes/) —
+  find maintained examples for bindings, databases, multiple Workers, outbound HTTP,
+  and Workflows;
+- [Workers test APIs](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/) —
+  use the current helpers instead of relying on remembered imports;
+- [Workers testing known issues](https://developers.cloudflare.com/workers/testing/vitest-integration/known-issues/) —
+  check runtime, storage, concurrency, timer, WebSocket, and coverage constraints.
+
+### Apply these preferences to the current Cloudflare setup
+
+After reading the current docs:
+
+- keep Vitest as the runner when Cloudflare's supported setup permits it;
+- run Worker behavior in the real local Workers runtime, not a generic Node facsimile;
+- load the real Wrangler configuration and use local implementations of bindings;
+- use fake test credentials and prevent access to production or remote resources;
+- exercise the real Worker entry point for request-level integration tests;
+- use Docker for an external Postgres or MySQL dependency and point both migrations
+  and the Worker binding at the same disposable database;
+- use the platform's maintained migration path for D1 and other local storage;
+- use MSW for outbound third-party HTTP, not for first-party platform bindings;
+- select the coverage provider Cloudflare currently supports and keep coverage
+  report-only.
+
+Keep host responsibilities and Worker responsibilities separate. Docker orchestration,
+process execution, and host filesystem work belong in the Node side of the harness.
+Bindings and Worker runtime behavior belong inside the supported Worker test context.
+Use the lifecycle and isolation model documented for the chosen harness rather than
+assuming ordinary Vitest behavior.
+
+### Workflows
+
+Treat a Workflow as durable orchestration, not as an ordinary async function. A call
+to a Workflow binding only confirms that the instance was accepted; it does not mean
+the Workflow's steps or side effects have completed.
+
+Use three complementary test boundaries:
+
+1. Test substantial domain operations directly, without wrapping them in fake
+   Workflow steps.
+2. Test that the owning HTTP, scheduled, queue, or event boundary hands the correct
+   parameters to the Workflow.
+3. Add a runtime integration test for each important Workflow path: create a real
+   instance through its binding, wait for it through the Workflow introspection API,
+   and assert its output or durable side effects.
+
+Do not add a synchronous execution mode, optional callback, or alternate production
+branch solely to make Workflow tests pass. That creates an execution path used by
+tests but not by production.
+
+Read the current [Workflow testing API](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/#workflows),
+[testing recipes](https://developers.cloudflare.com/workers/testing/vitest-integration/recipes/),
+and [Rules of Workflows](https://developers.cloudflare.com/workflows/build/rules-of-workflows/)
+before writing the harness. Use the documented introspection and control tools rather
+than hardcoding API names from another project.
+
+#### Control asynchronous execution
+
+Never wait with a fixed timeout and assume the Workflow finished. Wait for a status,
+step result, output, or final application state with a bounded polling helper. Use
+the current Workflow test controls to bypass sleeps and retry delays, provide external
+events, or force documented step failures. Fake timers do not model the Workflow
+engine.
+
+#### Test retries without erasing the behavior
+
+Workflow steps can run again. Cover the costly failure mode: a retry must not create
+duplicate charges, notifications, records, or messages. Disable the backoff rather
+than the retry, make the relevant dependency fail at the intended point, and assert
+the final durable state.
+
+Mocking a step result is useful when testing only downstream orchestration, but it
+skips the step implementation. Keep a separate test for the real operation and its
+owned side effects. Do not mock every step and call the result a Workflow integration
+test.
+
+Follow the current disposal and cleanup requirements for Workflow test controls.
+Leaked introspection state can invalidate isolation and make later tests observe an
+already-running or completed instance.
 
 ## Mock HTTP with MSW
 

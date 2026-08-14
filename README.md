@@ -45,6 +45,16 @@ this is an optional playbook, not a global instruction. it is intentionally not
 referenced from `AGENTS.md`, so it only applies when you explicitly hand it to an
 agent.
 
+## recommended skills and plugins
+
+[`recommended-skills-and-plugins.md`](./recommended-skills-and-plugins.md) is the
+shortlist of skills and plugins used most often here, what each one is for, and which
+ones combine well.
+
+it is a recommendation catalog, not an installer or a global instruction. point an
+agent at it when choosing capabilities for a project or task; nothing in `AGENTS.md`
+loads the list automatically.
+
 ## License
 
 Original material in this repository is available under the [MIT License](./LICENSE). The Aku Aku character and artwork belong to their respective rights holders and are not covered by that license. [Image source](https://crash-bandicoot.fandom.com/fr/wiki/Aku_Aku).
