@@ -27,6 +27,8 @@ Never use nested ternary expressions. Sacrifice terse code in favor of readabili
 
 # Writing
 
+Use longman defining vocabulary.
+
 Treat every word and sentence as starting with negative points because it costs the reader attention. Keep it only when it has a clear purpose and the value it delivers more than offsets that cost; if its net value is not positive, remove it. A stated purpose is not enough: text that fails to achieve its purpose adds no value. Prefer plain, familiar language. Uncommon or ornate words carry a higher cost and must add proportionally more precision or meaning to earn their place.
 
 # Comments
