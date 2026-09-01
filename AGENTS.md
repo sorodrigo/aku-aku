@@ -60,3 +60,13 @@ makes both states unambiguous, such as `setLoading(true)`. When a flag is justif
 among other arguments, put it in a named options object so its meaning is visible.
 
 Reference: https://alexkondov.com/should-you-pass-boolean-to-functions/
+
+# Backwards compatibility
+
+Do not preserve backwards compatibility unless I ask you to. You may warn me about
+the effects of breaking compatibility, but do not let that warning change the work.
+
+# Superpowers plugin
+
+Do not use skills from the superpowers plugin unless I ask you to. When I ask you to
+use them, review their output and make sure it follows every rule in this document.
