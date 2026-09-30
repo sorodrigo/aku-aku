@@ -48,7 +48,7 @@ Treat an outdated comment you happen to read as a defect to fix, not context to 
 
 # Git
 
-Do not create git commits on your own. Only commit when I explicitly ask you to. This holds even mid-task and even when a plan, skill, or workflow (e.g. subagent-driven development) suggests frequent commits — make the file changes and leave them for me to review and commit. The same applies to merging, pushing, and opening PRs: never do them unless I ask.
+Do not create git commits on your own. Only commit when I explicitly ask you to. This holds even mid-task and even when a plan, skill, or workflow suggests frequent commits — make the file changes and leave them for me to review and commit. The same applies to merging, pushing, and opening PRs: never do them unless I ask.
 
 # Boolean function arguments
 
@@ -65,8 +65,3 @@ Reference: https://alexkondov.com/should-you-pass-boolean-to-functions/
 
 Do not preserve backwards compatibility unless I ask you to. You may warn me about
 the effects of breaking compatibility, but do not let that warning change the work.
-
-# Superpowers plugin
-
-Do not use skills from the superpowers plugin unless I ask you to. When I ask you to
-use them, review their output and make sure it follows every rule in this document.
