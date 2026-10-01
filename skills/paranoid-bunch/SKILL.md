@@ -23,6 +23,8 @@ Review the findings in that file. Group recommendations about the same issue int
 
 Ask me for a decision on each issue, one at a time. I will give you my thoughts, and you will record them. Record each decision as accepted, with or without comments; deferred; or rejected.
 
+When showing an issue, give its number and the total, for example "Issue 2 of 12".
+
 A decision can also be an **open question**, left for the team to read and discuss. Ask me for my recommendation and record it with the question. Never write the recommendation yourself. An open question is not complete without one.
 
 ## Addenda
