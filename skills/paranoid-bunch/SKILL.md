@@ -23,6 +23,11 @@ Review the findings in that file. Group recommendations about the same issue int
 
 Ask me for a decision on each issue, one at a time. I will give you my thoughts, and you will record them. Record each decision as accepted, with or without comments; deferred; or rejected.
 
+Assume I have not read the target. Tell me two stories, so I can decide without asking for more:
+
+- **The target's story**, once, before the first issue: in 4 lines at most, what it does and how it does it.
+- **Each issue's story**, before its question: the part of the target it touches, what goes wrong there, and what the recommendations would change. Keep it short, in plain words, and in the order things happen.
+
 When showing an issue, give its number and the total, for example "Issue 2 of 12".
 
 A decision can also be an **open question**, left for the team to read and discuss. Ask me for my recommendation and record it with the question. Never write the recommendation yourself. An open question is not complete without one.
