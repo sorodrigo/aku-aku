@@ -65,6 +65,12 @@ npx skills add sorodrigo/aku-aku
 
 - [`paranoid-bunch`](./skills/paranoid-bunch/SKILL.md) — review code, a change, a plan, or a spec for needless complexity, then decide on each issue.
 
+## subagents
+
+[`senior-code-reviewer`](./subagents/senior-code-reviewer.md) reviews code, design
+choices, and tests. [Setup steps](./subagents.md) cover Claude Code and Codex's
+`/import` command.
+
 ## License
 
 Original material in this repository is available under the [MIT License](./LICENSE). The Aku Aku character and artwork belong to their respective rights holders and are not covered by that license. [Image source](https://crash-bandicoot.fandom.com/fr/wiki/Aku_Aku).
