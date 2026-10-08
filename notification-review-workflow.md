@@ -6,11 +6,13 @@ Use the full flow or call one stage. The skills share a scratch tracker, so pend
 |---|---|---|
 | [$pr-inbox](skills/pr-inbox/SKILL.md) | Classify notifications and clean the inbox. | Unread plus known read pending PRs, grouped by task. |
 | [$pr-triage](skills/pr-triage/SKILL.md) | Add shallow labels and initial risk. | Task review queue with reasons. |
-| [$pr-task-review](skills/pr-task-review/SKILL.md) | Review each task with paranoid-bunch. | Checked findings, authorized PR comments, risk changes and human flags. |
+| [$pr-task-review](skills/pr-task-review/SKILL.md) | Get senior-code-reviewer context, then review each task with paranoid-bunch. | Checked findings, authorized PR comments, risk changes and human flags. |
 | [$pr-walkthrough](skills/pr-walkthrough/SKILL.md) | Discuss flagged decisions one at a time. | Recorded decisions and remaining actions. |
 | [$pr-review-flow](skills/pr-review-flow/SKILL.md) | Connect the stages. | The full workflow, resuming from current progress. |
 
 Install the five skills together. Task review also uses [paranoid-bunch](skills/paranoid-bunch/SKILL.md). [Shared state rules](skills/pr-review-flow/references/tracker.md) define the tracker, counts and action limits.
+
+Set up the [senior-code-reviewer subagent](subagents.md) too. It runs before paranoid-bunch and returns findings as temporary supporting context. It makes no fixes or GitHub posts. Paranoid-bunch checks that context alongside its own review; the lead agent checks the combined findings before posting.
 
 For example: “Use $pr-inbox to clean my GitHub inbox,” or “Use $pr-review-flow to group pending work, classify risk, review each task and post findings on my behalf.”
 

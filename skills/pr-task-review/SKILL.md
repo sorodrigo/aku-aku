@@ -1,6 +1,6 @@
 ---
 name: pr-task-review
-description: "Review related PRs as one task using paranoid-bunch, check findings, compare risk, and flag human decisions. Leave code unchanged; post issues and possible fixes as authorized PR comments."
+description: "Review related PRs as one task with senior-code-reviewer context followed by paranoid-bunch. Check findings, compare risk, and flag human decisions. Leave code unchanged; post issues and possible fixes as authorized PR comments."
 ---
 
 # PR task review
@@ -11,11 +11,15 @@ Read [shared state rules](../pr-review-flow/references/tracker.md) and the insta
 
 Read [approval and hold rules](../pr-review-flow/references/approval.md). Apply them to findings, follow-up and readiness for approval, and carry them into every delegated task.
 
-Use one task with all related PRs, initial labels/risk, prior decisions and current heads. For a requested batch, delegate one task per subagent within available slots. Each task gets two independent adversarial passes with different models, following paranoid-bunch. If that model or delegation support is unavailable, report the reduced review coverage.
+Use one task with all related PRs, initial labels/risk, prior decisions and current heads. For a requested batch, delegate one task per subagent within available slots. Each task first gets a senior-code-reviewer pass, then two independent adversarial passes with different models, following paranoid-bunch. If an agent, model or delegation support is unavailable, report the missing pass and reduced review coverage; do not claim it ran.
 
 Every review agent must leave the target code, tests and configuration unchanged. Do not apply fixes, refactor, add tests to the target or run tools that rewrite its files. Run existing checks without repair steps; put any separate proof scripts and output under `tmp/`. If a check needs target edits, report that limit. A clear fix, failed test or accepted finding does not authorize implementation; that needs a separate user request.
 
 Include this handoff in every delegated review or check, including nested subagents: “Review only. Leave the target code, tests and configuration unchanged. Return issues with evidence, locations and possible fixes, marked must fix, suggestion, or nit (no action needed). Apply the supplied approval and hold rules. Do not nitpick PR descriptions; outdated docs or comments are optional minor notes, not findings. Write notes or proof scripts only in assigned scratch space. Do not post to GitHub; the lead agent checks and posts findings.”
+
+Before calling paranoid-bunch, call the installed senior-code-reviewer subagent on the same task and pinned commits. Give it the related PRs, scope, prior decisions and the handoff above. Ask it to return findings only as supporting material, with evidence, code locations and possible fixes. Any verdict in its output is advice, not a GitHub action. It must not apply findings, edit the target or post comments.
+
+Wait for that pass to finish, then keep its output in task-specific scratch under `tmp/` or in the task's context. Pass the same output to both paranoid-bunch passes as provisional supporting material, not as conclusions they must adopt. Each pass must inspect source and tests, challenge those points and look for other issues without seeing the other paranoid-bunch pass's conclusions. The lead agent checks and blends the results before any posting. Do not publish the senior review directly or save it in permanent repository documents; its notes remain temporary and tied to the checked commits. After a push, refresh supporting material for the affected changes before using it in a delta review.
 
 Trace the data across repositories. Check correctness and meaningful test coverage alongside too much scope, needless layers, reinvented tools, unneeded compatibility and excessive handling of unlikely cases. Pin reviewed heads. For a pending review that changes, inspect the delta and rerun only affected checks.
 

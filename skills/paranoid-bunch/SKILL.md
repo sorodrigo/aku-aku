@@ -15,6 +15,8 @@ Can you review the project code from a softwate architecture standpoint and writ
 
 Hint: Should be run twice in adversarial mode with different models.
 
+If another reviewer supplies supporting findings, treat them as provisional context. Check them against the target, keep or reject them based on evidence, and look for issues they missed. Do not apply their proposed fixes or copy their verdict as your own. Supporting notes stay temporary; only checked findings belong in the review output.
+
 ## 2. Blend
 
 Review the findings in that file. Group recommendations about the same issue into a single entry. I want a single blended list of issues. If views differ or conflict, group them and list both.
