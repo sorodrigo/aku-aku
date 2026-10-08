@@ -15,6 +15,8 @@ Before its first decision, explain the task in at most four short lines. For eac
 
 Record each decision as accepted, deferred, rejected or an open question. For an open question, get the user's recommendation rather than invent it. Carry decisions forward and keep review notes temporary. Answer questions briefly, then continue the current walkthrough.
 
+Accepting a finding records agreement with the review; it does not authorize a code change. Share the issue and possible fix as a PR comment when posting is authorized. Implementation needs a separate user request.
+
 “Next” moves the discussion forward; it does not mean approval, agreement or that a pending action is complete. If the user says they approved a PR elsewhere, record that and check GitHub when needed; do not let an old tracker override their correction. Submit approval only when instructed, then update the tracker and discard its notification when inbox cleanup is authorized.
 
 Return the recorded decisions and remaining human actions. Never silently resume code changes, batch reviews or publishing while the user is walking through PRs.

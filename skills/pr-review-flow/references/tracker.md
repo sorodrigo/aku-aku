@@ -39,6 +39,8 @@ Deduplicate PRs by repository and number, tasks by ticket/shared outcome, and no
 
 ## Authority
 
+Review agents leave target code, tests and configuration unchanged, including during checks. Only scratch notes and separate proof scripts may be written. Carry this limit into all subagent handoffs. Accepted findings are review decisions, not permission to apply fixes; implementation needs a separate user request.
+
 Listing and assessment are read-only. Apply cleanup rules when cleanup is requested or already authorized. Posting findings on behalf of the user covers the named PRs/batch when requested; do not ask again for that same authority. A one-time discard of authored-PR feedback is not a rule to hide future feedback.
 
 Approval, a changes-requested verdict, commits, pushes, merges and new PRs need their own user instruction. Never treat “reviewed,” “next” or “all good for now” as a submitted GitHub approval. Do not change GitHub labels merely because the tracker has labels.

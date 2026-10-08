@@ -9,6 +9,8 @@ If the user supplies run conditions, read [conditions rules](references/conditio
 
 Read [shared state rules](references/tracker.md). This skill connects the four stages; each may also run alone. Locate the named installed skill before invoking it; bundled entrypoints are linked below. Do not copy its rules or silently substitute a missing skill.
 
+Review leaves the target code, tests and configuration unchanged. Neither the lead agent nor subagents may apply fixes, including during checks. Put issues and possible fixes in PR comments on the user's behalf when posting is authorized. Carry this limit into every delegated task. A clear fix or an accepted finding is not permission to implement it; that needs a separate user request.
+
 1. Use [$pr-inbox](../pr-inbox/SKILL.md) to classify notifications, perform authorized cleanup and collect unread plus known pending tasks.
 2. Use [$pr-triage](../pr-triage/SKILL.md) for shallow overlapping labels and initial risk. Exclude already-reviewed work from fresh review while keeping clear follow-ups.
 3. Use [$pr-task-review](../pr-task-review/SKILL.md) on unreviewed tasks, including related PRs across repositories. It runs paranoid-bunch, checks findings, compares risk and flags human decisions.
