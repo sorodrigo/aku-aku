@@ -11,7 +11,7 @@ If the user has not said what to review, ask first. The target can be the projec
 
 ## 1. Review
 
-Can you review the project code from a softwate architecture standpoint and write your findings to `docs/review.md`? I want you to analyze it and look for paranoid, backwards compatibility, obsesive thoroughness complexity. I want to be able to understand how data flows thru the system in no more than 4 paragraphs. Complexity makes things fragile, simplicity is antifragile.
+Can you review the project code from a software architecture standpoint and write your findings to `docs/review.md`? I want you to analyze it and look for paranoid, backwards compatibility, obsessive thoroughness complexity. I want to be able to understand how data flows through the system in no more than 4 paragraphs. Complexity makes things fragile, simplicity is antifragile.
 
 Hint: Should be run twice in adversarial mode with different models.
 

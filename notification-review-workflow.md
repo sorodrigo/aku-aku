@@ -16,17 +16,17 @@ Set up the [senior-code-reviewer subagent](subagents.md) too. It runs before par
 
 For example: “Use $pr-inbox to clean my GitHub inbox,” or “Use $pr-review-flow to group pending work, classify risk, review each task and post findings on my behalf.”
 
-Read, done, reviewed and approved are separate states. Review notes stay in scratch; user decisions carry forward. Creating or invoking a skill does not approve PRs, merge changes or grant every posting action.
+Read, done, reviewed and approved are separate states. Review notes stay in scratch; user decisions carry forward. Record approval only after submission succeeds. A review run does not authorize merges or code changes.
 
-Calling task review or the full review flow posts checked points that need no decision from you automatically, on your behalf and within the review scope. It does not wait for the walkthrough. Ask for read-only review or drafts to keep comments unpublished. Decisions needing your eyes stay in the human queue; approvals still need your instruction.
+Calling task review or the full review flow posts checked points and approves ready PRs automatically on your behalf, within the review scope. It does not wait for confirmation or the walkthrough. Approval needs a checked commit, enough evidence for confidence and no open blocking points or required decisions. Ask for read-only review or drafts to prevent comments and approvals, or no approvals to keep them pending. Decisions needing your eyes stay in the human queue.
 
 Review agents leave code, tests and configuration unchanged, including when checking a finding. They return issues and possible fixes; the lead agent checks them and posts PR comments on your behalf when authorized. Accepting a finding does not start a fix. Ask separately for implementation.
 
-Each PR comment stands alone: explain the affected flow, trigger, actual and expected results, practical effect, evidence and possible fix. State any limits to the checks. Explain related PRs and decision choices in the comment; readers should not need our private review notes.
+Post only feedback the author can act on. Keep comments short and clear without relying on private review notes. Usually explain the concern as a question, marked must fix, suggestion, or nit (no action needed). Use separate inline threads for code findings. Post each point once on the PR in the repository that owns the change; link from other PRs only when needed. Keep internal ratings, flags and team summaries in the tracker. With no findings, submit an authorized approval without an extra summary comment. Keep check results brief, usually one line with the checked commit and any limits.
 
 Do not nitpick PR descriptions. Outdated docs and code comments may be mentioned as brief, optional minor notes; they do not count as review issues or raise risk.
 
-Use the [approval and hold rules](skills/pr-review-flow/references/approval.md): approve the exact checked commit only when no blocking point remains, trust reasonable choices explained by the author, weigh the harm of proposed fixes, and state the merge order for dependent PRs. New pushes need a delta review. Mark comments must fix, suggestion, or nit (no action needed); check earlier comments and bot reviews, acknowledge fixes briefly, and list only what remains.
+Use the [approval and hold rules](skills/pr-review-flow/references/approval.md): approve the exact checked commit only when no blocking point remains, trust reasonable choices explained by the author, and weigh the harm of proposed fixes. Leave merge order to the author; do not post it in comments or approvals. New pushes need a delta review. Mark comments must fix, suggestion, or nit (no action needed); check earlier comments and bot reviews, acknowledge fixes briefly, and list only what remains.
 
 ## Run with conditions
 
