@@ -16,8 +16,8 @@ Review leaves the target code, tests and configuration unchanged. Neither the le
 3. Use [$pr-task-review](../pr-task-review/SKILL.md) on unreviewed tasks, including related PRs across repositories. It runs paranoid-bunch, checks findings, compares risk and flags human decisions.
 4. Use [$pr-walkthrough](../pr-walkthrough/SKILL.md) for flagged decisions, one task at a time, when the user wants to discuss them.
 
-Start at the stage the user needs and reuse the scratch tracker. Do not repeat settled steps, reopen approved PRs from notification activity alone, or run the full flow when asked only to clean or list an inbox.
+Start at the stage the user needs and reuse the scratch tracker. Do not repeat settled steps, reopen approved PRs from notification activity alone, or run the full flow when asked only to clean or list an inbox. A push after the checked commit does need a fresh delta review; follow [approval and hold rules](references/approval.md).
 
-A full-flow invocation authorizes analysis and the delegation specified by the review skill. Infer cleanup, posting and formal review-request authority from the actual request and prior session instructions; invoking this entry skill alone does not grant every external action. Complete useful read-only work and prepare concrete findings before asking about any missing posting authority. Do not pause again when authority already exists.
+A full-flow invocation authorizes analysis, the delegation specified by the review skill, and automatic posting of checked points that need no user decision within the review scope. A request for read-only review or drafts overrides posting. Do not wait for the walkthrough or ask again before posting those comments. Infer cleanup and formal review-request authority from the actual request and prior session instructions. Approval, a changes-requested verdict and implementation still need their own user instruction.
 
 Hand off a short team story, risk changes, human decisions and pending owners. Report only verified actions; distinguish code review completion, user approval and inbox cleanup.

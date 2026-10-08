@@ -16,11 +16,15 @@ For example: “Use $pr-inbox to clean my GitHub inbox,” or “Use $pr-review-
 
 Read, done, reviewed and approved are separate states. Review notes stay in scratch; user decisions carry forward. Creating or invoking a skill does not approve PRs, merge changes or grant every posting action.
 
+Calling task review or the full review flow posts checked points that need no decision from you automatically, on your behalf and within the review scope. It does not wait for the walkthrough. Ask for read-only review or drafts to keep comments unpublished. Decisions needing your eyes stay in the human queue; approvals still need your instruction.
+
 Review agents leave code, tests and configuration unchanged, including when checking a finding. They return issues and possible fixes; the lead agent checks them and posts PR comments on your behalf when authorized. Accepting a finding does not start a fix. Ask separately for implementation.
 
 Each PR comment stands alone: explain the affected flow, trigger, actual and expected results, practical effect, evidence and possible fix. State any limits to the checks. Explain related PRs and decision choices in the comment; readers should not need our private review notes.
 
 Do not nitpick PR descriptions. Outdated docs and code comments may be mentioned as brief, optional minor notes; they do not count as review issues or raise risk.
+
+Use the [approval and hold rules](skills/pr-review-flow/references/approval.md): approve the exact checked commit only when no blocking point remains, trust reasonable choices explained by the author, weigh the harm of proposed fixes, and state the merge order for dependent PRs. New pushes need a delta review. Mark comments must fix, suggestion, or nit (no action needed); check earlier comments and bot reviews, acknowledge fixes briefly, and list only what remains.
 
 ## Run with conditions
 

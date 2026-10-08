@@ -15,7 +15,7 @@ Read [shared state rules](../pr-review-flow/references/tracker.md). These five s
 4. Give one line per item: what it is and the recommended action. Keep feedback on the user's own PRs separate from requests for their review.
 5. When cleanup is authorized, mark approved-by-user, merged/closed, waiting-with-no-user-action, and obvious no-action items done. Do not ask again for those routine choices. Preserve pending actions and return unread plus known read pending, grouped by ticket/task across repositories.
 
-“Discard” means mark done: `DELETE /notifications/threads/{id}`. `PATCH` only marks read. Record successful actions and failures separately. New activity on an approved PR does not reopen review by default. Clearing a batch of the user's own PRs does not authorize clearing future feedback.
+“Discard” means mark done: `DELETE /notifications/threads/{id}`. `PATCH` only marks read. Record successful actions and failures separately. New activity on an approved PR does not reopen review by default, but a push beyond its checked commit needs a fresh delta review under the [approval and hold rules](../pr-review-flow/references/approval.md). Keep that work pending rather than dismissing it based on earlier approval. Clearing a batch of the user's own PRs does not authorize clearing future feedback.
 
 Deduplicate PRs by repository and number. Show unread/read-pending status and count PRs separately from notification threads. Do not claim the UI inbox count from historical API results. If the user asks only to list or classify, do not mutate notifications.
 
