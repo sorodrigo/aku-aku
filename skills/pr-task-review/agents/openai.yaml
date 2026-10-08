@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Task Review"
+  short_description: "Help with Pr Task Review tasks"
+  default_prompt: "Use $pr-task-review for the requested PR workflow stage."

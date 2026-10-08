@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Walkthrough"
+  short_description: "Help with Pr Walkthrough tasks"
+  default_prompt: "Use $pr-walkthrough for the requested PR workflow stage."

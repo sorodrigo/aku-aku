@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Triage"
+  short_description: "Help with Pr Triage tasks"
+  default_prompt: "Use $pr-triage for the requested PR workflow stage."

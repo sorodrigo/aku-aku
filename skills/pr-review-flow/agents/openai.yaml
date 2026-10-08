@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Review Flow"
+  short_description: "Help with Pr Review Flow tasks"
+  default_prompt: "Use $pr-review-flow for the requested PR workflow stage."

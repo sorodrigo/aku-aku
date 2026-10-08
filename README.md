@@ -45,6 +45,13 @@ this is an optional playbook, not a global instruction. it is intentionally not
 referenced from `AGENTS.md`, so it only applies when you explicitly hand it to an
 agent.
 
+## notifications and PR reviews
+
+[`notification-review-workflow.md`](./notification-review-workflow.md) covers inbox
+cleanup, grouping pending work by task, risk checks, paranoid-bunch reviews, and
+human review requests. Hand it to an agent when sorting GitHub notifications or
+reviewing a batch of PRs.
+
 ## recommended skills and plugins
 
 [`recommended-skills-and-plugins.md`](./recommended-skills-and-plugins.md) is the
@@ -64,6 +71,14 @@ npx skills add sorodrigo/aku-aku
 ```
 
 - [`paranoid-bunch`](./skills/paranoid-bunch/SKILL.md) — review code, a change, a plan, or a spec for needless complexity, then decide on each issue.
+- [`pr-inbox`](./skills/pr-inbox/SKILL.md) — clean notifications and group unread plus pending PRs.
+- [`pr-triage`](./skills/pr-triage/SKILL.md) — add change labels and initial risk.
+- [`pr-task-review`](./skills/pr-task-review/SKILL.md) — review related PRs, share authorized findings and flag human decisions.
+- [`pr-walkthrough`](./skills/pr-walkthrough/SKILL.md) — explain flagged work and discuss one decision at a time.
+- [`pr-review-flow`](./skills/pr-review-flow/SKILL.md) — connect the four stages and resume from current progress.
+
+Install the five PR skills together with `paranoid-bunch`; they share tracker rules
+in `pr-review-flow`.
 
 ## subagents
 
