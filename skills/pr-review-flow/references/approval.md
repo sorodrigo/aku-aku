@@ -5,6 +5,7 @@ Use these rules to decide whether a PR is ready for approval. A task review or f
 ## Approve
 
 - Approve only the exact commit checked. Before submitting, fetch the current head and compare it with the reviewed commit. Tie the approval to the reviewed commit explicitly, and record the returned review link and commit. If the head changed, check the new changes first. Any later push needs a fresh look at its delta; repository settings may also drop the earlier approval.
+- Re-approve quickly after a small push. If the user approved an earlier commit and the new delta is only a merge or rebase from the base branch, or small changes that address review points, check just that delta at light depth: read the PR's own diff since the approved commit, confirm CI passes, and approve the new head with an empty body. For a merge, check only the conflict resolutions. Do a full review only when the delta adds new behavior, touches files the PR did not change before, or hits a deep-depth trigger from the task review skill.
 - Leave no blocking point open. Remaining points must be optional suggestions or nits, and the approval must say they do not hold up merging.
 - Judge behavior, not wording. An outdated PR description, document or code comment is at most a nit, never a reason to hold.
 - Leave reasonable design choices to the author. If the author has explained a choice and it has no concrete blocking defect, trust it. Do not hold approval for the reviewer's preferred version.
@@ -25,6 +26,6 @@ Usually present the concern as a question to the author. Ask for clarification w
 
 Mark each point **must fix**, **suggestion**, or **nit (no action needed)**. Check existing comments, review threads and bot reviews before posting. Do not repeat a point already raised; add to its thread only when there is new evidence or a useful clarification.
 
-Post each point once in the repository that owns the change. Use separate inline threads for findings tied to code. Keep internal ratings, flags, team summaries and agent details in the tracker. With no findings, submit an authorized approval without an extra summary comment. Keep validation brief in the review body, adding detail only when it affects confidence.
+Post each point once in the repository that owns the change. Use separate inline threads for findings tied to code. Keep internal ratings, flags, team summaries and agent details in the tracker. With nothing left for the author to act on, submit the approval with an empty body. Keep validation notes (tests run, commits checked, counts) in the tracker; mention them in a comment only as evidence for a specific finding.
 
-After checking a fix, acknowledge it briefly, then list only what remains. Keep resolved points in the tracker without presenting them as open. An approval with only optional points left should say so.
+After checking a fix, list only what remains. If nothing remains, approve with an empty body; do not post a separate acknowledgement. Keep resolved points in the tracker without presenting them as open. An approval with only optional points left should say so.
