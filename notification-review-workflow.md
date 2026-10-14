@@ -26,7 +26,7 @@ Post only feedback the author can act on. Keep comments short and clear without 
 
 Do not nitpick PR descriptions. Outdated docs and code comments may be mentioned as brief, optional minor notes; they do not count as review issues or raise risk.
 
-Use the [approval and hold rules](skills/pr-review-flow/references/approval.md): approve the exact checked commit only when no blocking point remains, trust reasonable choices explained by the author, and weigh the harm of proposed fixes. Leave merge order to the author; do not post it in comments or approvals. New pushes need a delta review. Mark comments must fix, suggestion, or nit (no action needed); check earlier comments and bot reviews, acknowledge fixes briefly, and list only what remains.
+Use the [approval and hold rules](skills/pr-review-flow/references/approval.md): approve the exact checked commit only when no blocking point remains, trust reasonable choices explained by the author, and weigh the harm of proposed fixes. Drop findings that are very unlikely in real use and cheap to recover from; list the few that are very unlikely but serious in the debrief for you, without posting them. Leave merge order to the author; do not post it in comments or approvals. New pushes need a delta review. Mark comments must fix, suggestion, or nit (no action needed); check earlier comments and bot reviews, acknowledge fixes briefly, and list only what remains.
 
 ## Run with conditions
 

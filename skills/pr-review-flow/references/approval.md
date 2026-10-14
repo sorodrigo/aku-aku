@@ -12,6 +12,21 @@ Use these rules to decide whether a PR is ready for approval. A task review or f
 - Weigh a proposed fix against the harm it could cause. A rare problem may remain when the fix would break more valuable behavior or cause greater harm. Explain the accepted trade-off; “rarely twice” can beat “rarely never.”
 - For dependent PRs, check them together and, when approval is authorized and each is ready, approve both. Leave merge order to the author; do not post it in comments or approvals. Keep dependency context in the tracker. A dependency alone is not a reason to hold approval.
 
+## Real-world value filter
+
+Apply this last, after a finding is confirmed against source and tests and before it is posted or holds approval. Judge it as a product engineer who knows the business: will it happen in real use, and would fixing it change anything that matters?
+
+- **Likelihood.** Count what the trigger needs in production: normal inputs, real traffic, real deploys, real users. A trigger that needs several rare events at once, such as exact timing, an outside service failing mid-step, data no real flow creates or an operator mistake, is very unlikely. A forced test or proof script shows it can happen, not that it will.
+- **Cost.** Judge harm in money, data, access, user trust and the work to recover. Harm that a retry, a support ticket or a small manual fix repairs is low.
+
+Then:
+
+- **Drop** a finding that is very unlikely and low cost, even when the fix is easy. Record it in the tracker in a few words; do not post it, report it or let it hold approval.
+- **Long-tail risk**: very unlikely but serious and hard to reverse, such as wrong money, lost data or leaked access. Do not post it, and do not let it hold approval. List it in the debrief for the user to review, one line each: trigger, harm, why it is unlikely and the smallest fix.
+- **Keep** everything else under the normal rules.
+
+Expect few long-tail risks: usually none for a task, rarely more than one, and a few at most in a whole run. A longer list means the risk judgement is too cautious; filter again before reporting.
+
 ## Hold
 
 Hold when a required fix has not arrived, an answer needed to judge correctness is missing, a decision only the user can make remains open, new commits have not been checked, or the PR has not been reviewed at all. Name what remains and who owns the next action. An optional question does not hold approval.

@@ -23,7 +23,7 @@ Distinguish the user (inbox owner and human decision maker), the assistant and e
 
 - Identity: task/ticket, repository, PR link/number, PR author, notification IDs.
 - Evidence: current head, reviewed head, approved commit/review link, latest activity, status sources and check times.
-- Assessment: overlapping labels, initial risk/reason, reviewed risk/reason, findings and comment links.
+- Assessment: overlapping labels, initial risk/reason, reviewed risk/reason, findings, dropped findings, long-tail risks and comment links.
 - Progress: review shared, own approval, pending action/owner, human flag/decision, accepted/deferred/rejected/open-question status and linked dependencies. Merge order belongs to the author and is not posted as review feedback.
 - Inbox: unread/read, discard request, done action result, separate inbox-state evidence where available.
 
