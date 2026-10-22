@@ -11,7 +11,17 @@ Read [shared state rules](../pr-review-flow/references/tracker.md) and the insta
 
 Read [approval and hold rules](../pr-review-flow/references/approval.md). Apply them to findings, follow-up and readiness for approval, and carry them into every delegated task.
 
-Use one task with all related PRs, initial labels/risk, prior decisions and current heads. For a requested batch, delegate one task per subagent within available slots. Choose a review depth per task before delegating, record it with a one-line reason in the tracker, and run only the passes that depth names.
+Use one task with all related PRs, initial labels/risk, prior decisions and current heads. For a requested batch, delegate one task per subagent within available slots. Choose a review depth per task before delegating, record it with a one-line reason in the tracker, and run the passes that depth names plus the new UI check below when it applies.
+
+## New UI check
+
+Check the diff against the base for added user-facing UI: a new screen, section, control or flow. Updates to existing UI alone do not trigger this check. A new source file, moved component or refactor does not by itself mean new UI. For mixed changes, review the additions in the context of the existing app.
+
+When the PR adds UI, call [$design-roast](../design-roast/SKILL.md) at any review depth. Supply the added UI, checked commit, task goals, user needs and available brand and design evidence. Record whether the check ran, was skipped or lacked evidence in the tracker. On later pushes, revisit only affected findings or additions.
+
+Check the roast's findings before posting. Comment only when the addition is below the app's standard and would make it worse: for example, it hinders the task, misses a business need or breaks a useful design pattern. For marginal improvements, weigh the benefit against the author's time; usually say nothing. Do not post taste-based nits or a roast summary when no useful finding remains.
+
+Every design comment must include an image showing the concern or proposed improvement, with useful alt text. An AI-generated concept is enough; label it as such. Use an attachment or image URL the PR's readers can access, never a local path or an invented upload URL. If an image cannot be generated or attached, keep the design comment as a draft and report the limit. Other code findings can proceed. Apply the normal posting, duplicate and approval rules below; missing artwork alone is not a code defect.
 
 ## Review depth
 

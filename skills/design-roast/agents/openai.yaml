@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Roast"
+  short_description: "Critique UI against goals and app design"
+  default_prompt: "Use $design-roast to critique this UI against user needs, business goals and the app's brand, with images for useful improvements."

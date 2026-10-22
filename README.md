@@ -74,11 +74,12 @@ npx skills add sorodrigo/aku-aku
 - [`pr-inbox`](./skills/pr-inbox/SKILL.md) — clean notifications and group unread plus pending PRs.
 - [`pr-triage`](./skills/pr-triage/SKILL.md) — add change labels and initial risk.
 - [`pr-task-review`](./skills/pr-task-review/SKILL.md) — review related PRs, share authorized findings and flag human decisions.
+- [`design-roast`](./skills/design-roast/SKILL.md) — critique UI against user needs and app design, with images for useful improvements.
 - [`pr-walkthrough`](./skills/pr-walkthrough/SKILL.md) — explain flagged work and discuss one decision at a time.
 - [`pr-review-flow`](./skills/pr-review-flow/SKILL.md) — connect the four stages and resume from current progress.
 
-Install the five PR skills together with `paranoid-bunch`; they share tracker rules
-in `pr-review-flow`.
+Install the five PR skills together with `paranoid-bunch` and `design-roast`; they share tracker rules
+in `pr-review-flow`. Design roast uses the `frontend-design` plugin and image generation.
 
 ## subagents
 
