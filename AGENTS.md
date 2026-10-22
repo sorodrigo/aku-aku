@@ -49,6 +49,12 @@ Treat an outdated comment you happen to read as a defect to fix, not context to 
 
 # Git
 
+Before starting a new task, check `git status --short` and whether the current branch is being used for ongoing work. A clean tree has no staged, unstaged, or untracked changes. Being on a branch other than the default branch is not, by itself, a reason to create a worktree.
+
+- If the tree is clean and the branch is not being worked on, use the current checkout: switch to the repo's default branch (`main` unless the repo uses another), run `git pull --ff-only`, then create the task branch from there.
+- Create a separate worktree only when the current tree is dirty or the branch is actively being worked on. For a new task, fetch the latest default branch and use it as the base for the worktree's task branch. Leave existing work in place; do not stash or discard it to make the tree clean.
+- When continuing an existing task, use that task's branch and checkout.
+
 Do not create git commits on your own. Only commit when I explicitly ask you to. This holds even mid-task and even when a plan, skill, or workflow suggests frequent commits — make the file changes and leave them for me to review and commit. The same applies to merging, pushing, and opening PRs: never do them unless I ask.
 
 # Boolean function arguments
