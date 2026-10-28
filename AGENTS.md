@@ -57,6 +57,18 @@ Before starting a new task, check `git status --short` and whether the current b
 
 Do not create git commits on your own. Only commit when I explicitly ask you to. This holds even mid-task and even when a plan, skill, or workflow suggests frequent commits — make the file changes and leave them for me to review and commit. The same applies to merging, pushing, and opening PRs: never do them unless I ask.
 
+## Tasks across several repos
+
+A task can touch several repos, and one repo can sit inside another as a submodule. Keep every branch easy to find and safe to remove:
+
+- **One home clone per repo.** Make all branches and worktrees for a repo from its home clone. Never write code or commit inside a submodule or other nested copy: its branches exist only in that copy and are lost when the worktree around it is removed.
+- **Submodules only pin commits.** Move a submodule only to a commit that is already pushed. Run tests that need the nested repo against that repo's task worktree, through a path setting, not against the submodule checkout.
+- **One folder per task.** Put all of a task's worktrees in one folder named after the task, one per repo (`<task>/<repo>`).
+- **Subagents use the task's worktrees.** They never create worktrees or clones. A subagent that needs one stops and says so.
+- **Check the branch before writing.** Before adding tests or moving a pin, check that the branch belongs to the task the change is for. When branches are stacked, fix the lowest branch that has the problem, then list the branches above it, in every repo, that need a rebase.
+- **No local-only branches.** By the end of a task, every branch is pushed or deleted.
+- **Remove a worktree only when nothing is lost:** no changed, untracked or ignored files; its branch matches the remote, or its commit is on a remote branch; and no submodule inside it has commits or branches missing from its remote. When a task's PRs are merged, remove its worktrees and local branches.
+
 # Boolean function arguments
 
 Treat a boolean argument that switches a function between different behaviors as a
