@@ -12,6 +12,8 @@ Use the full flow or call one stage. The skills share a scratch tracker, so pend
 
 Install the five skills together. Task review also uses [paranoid-bunch](skills/paranoid-bunch/SKILL.md) and [design-roast](skills/design-roast/SKILL.md). [Shared state rules](skills/pr-review-flow/references/tracker.md) define the tracker, counts and action limits.
 
+OpenCode names a skill with `@`, as in `@pr-inbox`. The examples below use Codex's `$` form.
+
 When a PR adds UI, task review calls design-roast, which uses the `frontend-design` plugin. Updates to existing UI alone do not trigger it. User and business needs come first, followed by brand fit and visual quality. Post only worthwhile findings about additions that would make the app worse; usually skip marginal improvements. Every design comment includes an image explaining the improvement. An AI-generated concept is enough; no local build or code changes are needed to create it.
 
 Set up the [senior-code-reviewer subagent](subagents.md) too. It runs before paranoid-bunch and returns findings as temporary supporting context. It makes no fixes or GitHub posts. Paranoid-bunch checks that context alongside its own review; the lead agent checks the combined findings before posting.

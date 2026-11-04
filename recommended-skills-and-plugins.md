@@ -30,3 +30,15 @@ npx skills add addyosmani/web-quality-skills
 
 - [Frontend Design](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/frontend-design) — `frontend-design:frontend-design`
 - Product Design
+
+These are Claude Code plugins. OpenCode uses a different plugin format and does not
+load them. Design-roast needs the Frontend Design skill, so give OpenCode its own
+copy. Point the `skills` array in `~/.config/opencode/opencode.json` at the
+`skills/` directory inside the installed plugin, wherever it lives:
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": ["<plugin>/skills"]
+}
+```

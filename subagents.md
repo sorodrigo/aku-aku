@@ -4,6 +4,7 @@
 source for our code review agent. It uses the parent session's model.
 
 [Claude Code loads Markdown agent files](https://code.claude.com/docs/en/sub-agents).
+[OpenCode loads Markdown agent files](https://opencode.ai/v2/docs/agents) too.
 [Codex can import Claude Code subagents](https://learn.chatgpt.com/docs/import).
 
 ## Claude Code
@@ -17,6 +18,19 @@ ln -sfn "$PWD/subagents/senior-code-reviewer.md" "$HOME/.claude/agents/senior-co
 
 This replaces any file at the target path. Back it up first if needed.
 The link keeps Claude Code in step with edits here.
+
+## OpenCode
+
+From this repo's root:
+
+```sh
+mkdir -p "$HOME/.config/opencode/agents"
+ln -sfn "$PWD/subagents/senior-code-reviewer.md" "$HOME/.config/opencode/agents/senior-code-reviewer.md"
+```
+
+The file sets `mode: subagent`, which OpenCode needs to list it as a subagent. It
+sets no model, so it uses the parent session's model, as `inherit` does in Claude
+Code.
 
 ## Codex
 
@@ -38,7 +52,7 @@ to keep imported work in sync with the source.
 
 ## Use it
 
-Start a fresh session in either tool, then ask:
+Start a fresh session in any of these tools, then ask:
 
 ```text
 Use the senior-code-reviewer subagent to review my changes.

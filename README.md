@@ -17,14 +17,15 @@ fork what hits. remix to taste. leave the rest.
 clone the repo, `cd` into it, then make [`AGENTS.md`](./AGENTS.md) the source of truth:
 
 ```sh
-mkdir -p "$HOME/.claude" "$HOME/.codex"
+mkdir -p "$HOME/.claude" "$HOME/.codex" "$HOME/.config/opencode"
 ln -sfn "$PWD/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 ln -sfn "$PWD/AGENTS.md" "$HOME/.codex/AGENTS.md"
+ln -sfn "$PWD/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
 ```
 
-one file, same taste everywhere. the `-f` replaces anything already living at those two paths, so back it up first if needed.
+one file, same taste everywhere. the `-f` replaces anything already living at those paths, so back it up first if needed.
 
-claude code reads `~/.claude/CLAUDE.md`; [codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md) reads `~/.codex/AGENTS.md`. both resolve to the file tracked here.
+claude code reads `~/.claude/CLAUDE.md`; [codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md) reads `~/.codex/AGENTS.md`; [opencode](https://opencode.ai/v2/docs/instructions) reads `~/.config/opencode/AGENTS.md` and does not fall back to `CLAUDE.md`. all three resolve to the file tracked here.
 
 git can preserve symlinks inside a repo, but it cannot install them elsewhere in your home directory. these few commands are the tiny installer.
 
@@ -70,6 +71,8 @@ loads the list automatically.
 npx skills add sorodrigo/aku-aku
 ```
 
+the installer writes the skills to `~/.agents/skills`. [opencode](https://opencode.ai/v2/docs/skills) reads that directory directly, so the same install covers it with no extra step.
+
 - [`paranoid-bunch`](./skills/paranoid-bunch/SKILL.md) — review code, a change, a plan, or a spec for needless complexity, then decide on each issue.
 - [`pr-inbox`](./skills/pr-inbox/SKILL.md) — clean notifications and group unread plus pending PRs.
 - [`pr-triage`](./skills/pr-triage/SKILL.md) — add change labels and initial risk.
@@ -84,8 +87,8 @@ in `pr-review-flow`. Design roast uses the `frontend-design` plugin and image ge
 ## subagents
 
 [`senior-code-reviewer`](./subagents/senior-code-reviewer.md) reviews code, design
-choices, and tests. [Setup steps](./subagents.md) cover Claude Code and Codex's
-`/import` command.
+choices, and tests. [Setup steps](./subagents.md) cover Claude Code, OpenCode, and
+Codex's `/import` command.
 
 ## License
 
