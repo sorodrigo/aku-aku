@@ -19,12 +19,14 @@ When a conditions file is supplied, use [conditions rules](conditions.md). Save 
 
 Distinguish the user (inbox owner and human decision maker), the assistant and each PR author. Resolve the user's current account; never hardcode a person's name or GitHub handle.
 
+Leave merge, release and deployment order to the PR author. Unless the user asks, do not copy, repeat or insist on that order in comments, approvals, summaries or walkthroughs. Keep needed dependency context in the tracker; an order requirement alone is not a finding or a reason to hold approval.
+
 ## Tracker fields
 
 - Identity: task/ticket, repository, PR link/number, PR author, notification IDs.
 - Evidence: current head, reviewed head, approved commit/review link, latest activity, status sources and check times.
 - Assessment: overlapping labels, initial risk/reason, reviewed risk/reason, findings, dropped findings, long-tail risks and comment links.
-- Progress: review shared, own approval, pending action/owner, human flag/decision, accepted/deferred/rejected/open-question status and linked dependencies. Merge order belongs to the author and is not posted as review feedback.
+- Progress: review shared, own approval, pending action/owner, human flag/decision, accepted/deferred/rejected/open-question status and linked dependencies.
 - Inbox: unread/read, discard request, done action result, separate inbox-state evidence where available.
 
 Update only the state justified by evidence. Tool success proves the action was accepted, not every downstream or UI state. A failed or uncertain action remains reported as such. A user correction takes precedence over stale notes; verify live state where useful.

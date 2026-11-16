@@ -10,7 +10,7 @@ Use these rules to decide whether a PR is ready for approval. A task review or f
 - Judge behavior, not wording. An outdated PR description, document or code comment is at most a nit, never a reason to hold.
 - Leave reasonable design choices to the author. If the author has explained a choice and it has no concrete blocking defect, trust it. Do not hold approval for the reviewer's preferred version.
 - Weigh a proposed fix against the harm it could cause. A rare problem may remain when the fix would break more valuable behavior or cause greater harm. Explain the accepted trade-off; “rarely twice” can beat “rarely never.”
-- For dependent PRs, check them together and, when approval is authorized and each is ready, approve both. Leave merge order to the author; do not post it in comments or approvals. Keep dependency context in the tracker. A dependency alone is not a reason to hold approval.
+- For dependent PRs, check them together and, when approval is authorized and each is ready, approve both. Follow the release-order rule in [shared review state](tracker.md). Keep dependency context in the tracker. A dependency alone is not a reason to hold approval.
 
 ## Real-world value filter
 
